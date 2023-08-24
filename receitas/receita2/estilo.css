@@ -1,0 +1,47 @@
+p.verso{
+    color: blue; 
+ }
+ 
+ p.mote{
+    color: red;
+ }
+ 
+ a:visited{
+    color: limegreen;
+ }
+ 
+ a:hover{
+    color: darkorange;
+ }
+ 
+ img.poeta{
+    border-radius: 50%;
+    height:75px;
+    width: 75px;
+ }
+ 
+ table {
+   border-collapse: collapse;
+   border-spacing: 0;
+   width: 10%;
+   border: 1px solid #ddd;
+   text-decoration: none;
+   cursor: pointer;
+ }
+ 
+ tr{
+    cursor: pointer;
+ }
+ 
+ th, td {
+   text-align: left;
+   padding: 16px;
+ }
+ 
+ th{
+    background-color: #eee;
+ }
+ 
+ tr:nth-child(even) {
+   background-color: #f2f2f2;
+}
