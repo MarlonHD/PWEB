@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">      
+      <title>Receita 03</title>
+      <style>
+            #cerveja {
+                transition: opacity .5s ease-in-out;
+            }
+      </style>
+   </head>
+
+   <body>
+      <div id="cerveja">Carregando cervejas...</div>            
+      <div><button id="botaoCarregar">Carregar</button></div>
+   </body>   
+
+   <script>
+
+        var cervejas = ['Guinness','itaipava','skol','petra','budweiser'];
+
+        var cervIndex = 0;
+
+        let controle = false;
+        function carregarDiv(){
+            let div = document.getElementById("cerveja")
+            if (controle){
+                div.innerHTML = `<h1>` + cervejas[cervIndex] + `</h1>`;
+                div.style.opacity = 1;
+                cervIndex = (cervIndex+1) % cervejas.length;
+                controle = false;
+            }else{
+                div.style.opacity = 0;
+                controle = true;
+            }
+        }
+
+        let botao = document.getElementById("botaoCarregar")
+        botao.addEventListener("click", carregarDiv)                 
+
+   </script>
+
+</html>
