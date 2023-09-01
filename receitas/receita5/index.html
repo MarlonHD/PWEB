@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8"> 
+      <title>Receita 05</title>     
+   </head>
+   
+   <body>
+      <div></div>
+      <div id="meu amor">
+        <a id="botaoCarregar">Carregando cervejas...</a>
+    </div>            
+      <div id="botoes">
+        <a id="botaoOrd">Ordenar</a>
+        <a id="botaoEmb">Embaralhar</a>
+      </div>
+   </body>   
+   
+   <script>
+      let cervejas = ["Guiness", "Desperados", "Becks"]
+      let cachacas = ["Pitú", "Caranguejo", "Samanaú", "Jureminha", "Serra do Mel", "Bodega"]
+
+      //function carregar(){      
+      const carregarDiv = cervs => {
+         const div = document.getElementById("meu amor")
+         const cervejasHtml = cervs.map( item => `<tr><td>${item}</td></tr>` ) 
+         div.innerHTML = `<table>${cervejasHtml.join("\n")}</table>`
+      }
+
+      const ordenarTabela = coisas => {
+        const div = document.getElementById("meu amor")
+        const coisasHtml = coisas.sort((a,b) => a.localeCompare(b)).map(item => `<tr><td>${item}</tr></td>`);
+        div.innerHTML = `<table>${coisasHtml.join("\n")}</table>`
+      }
+
+      const embaralharTabela = coisas => {
+        const div = document.getElementById("meu amor")
+        const coisasHtml = coisas.sort(() => Math.random() - 0.5).map(item => `<tr><td>${item}</tr></td>`);
+        div.innerHTML = `<table>${coisasHtml.join("\n")}</table>`
+      }
+
+      
+      let botao = document.getElementById("botaoCarregar")
+      botao.addEventListener("click", ()=>carregarDiv(cachacas))
+
+      let botao1 = document.getElementById("botaoOrd")
+      botao1.addEventListener("click", ()=>ordenarTabela(cachacas))        
+      
+      let botao2 = document.getElementById("botaoEmb")
+      botao2.addEventListener("click", ()=>embaralharTabela(cachacas))
+   </script>
+</html>
