@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>ReactZero</title>  
+      <style>
+        #customers {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+          }
+
+          #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 8px;
+          }
+
+          #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+          #customers tr:hover {background-color: #ddd;}
+
+          #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #04AA6D;
+          color: white;
+          }
+      </style>    
+   </head>
+   <body>
+      <div id="app">
+      
+      </div>
+
+      <script src="libs/react.js"></script>
+      <script src="libs/react-dom.js"></script>
+      
+      <script>
+      
+        ReactDOM.render(
+            React.createElement('h1', {id: 'my-heading'},
+              React.createElement('span', null, 'React ',
+                React.createElement('em', null, 'é muito'),
+              ),
+              ' massa!'
+            ),
+            document.getElementById("app"))
+        
+        ReactDOM.render(
+            React.createElement('table', {id: 'customers'},
+                React.createElement('tr', null, 
+                    React.createElement('th', null, 'nome'),
+                    React.createElement('th', null, 'valor'),
+                ),
+                React.createElement('tr', null, 
+                    React.createElement('td', null, 'nome1'),
+                    React.createElement('td', null, 2.5),
+                ),
+                React.createElement('tr', null, 
+                    React.createElement('td', null, 'nome2'),
+                    React.createElement('td', null, 3.4),            
+                ),
+            ),
+            document.getElementById("app") 
+        )
+      </script>
+   </body>
+</html>
