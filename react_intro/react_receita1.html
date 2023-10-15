@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+
+      <title>React Um</title>   
+      <style>
+        #customers {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+          }
+
+          #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 8px;
+          }
+
+          #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+          #customers tr:hover {background-color: #ddd;}
+
+          #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #04AA6D;
+          color: white;
+          }
+      </style>       
+   </head>
+
+   <body>
+
+      <div id="app">      
+
+      </div>
+      <button id="carregar">Carregar Cervejas</button>
+
+      <script src="libs/react.js"></script>
+
+      <script src="libs/react-dom.js"></script>
+
+      <script src="https://unpkg.com/babel-standalone/babel.min.js" crossorigin></script>
+
+      
+
+      <script type="text/babel">
+
+        let cervejas = [
+            {
+                name: "Guiness", 
+                alcohol: "10%",
+                style: "English IPA",
+                ibu: "30"    
+            }, 
+            {
+                name: "Desperados",
+                alcohol: "6%",
+                style: "Pilsen",
+                ibu: "25"            
+            }, 
+            {
+                name: "Becks",
+                alcohol: "5%",
+                style: "Red Ale",
+                ibu: "40"            
+            },
+
+        ]
+
+        const Cabecalho = () => {
+            return (
+                <h1>Minha tabela de bebidas</h1>
+            )
+        }
+        
+        let columns = ["Nome","Alcool","Estilo","IBU"]
+
+        const TabelaBebidas = () => {
+            return (
+                <table id="customers" border="1">
+                    <thead>
+                        <tr>
+                            {columns.map((col)=>(<th>{col}</th>))}    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {cervejas.map((cerv) => (
+                            <tr>
+                                <td>{cerv.name}</td>
+                                <td>{cerv.alcohol}</td>
+                                <td>{cerv.style}</td>
+                                <td>{cerv.ibu}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            )
+        }
+
+        const carregarDiv = () =>{
+            ReactDOM.render(
+            <div>
+                <Cabecalho/> 
+                <TabelaBebidas/>
+            </div>
+
+            ,
+
+            document.getElementById("app"))
+        }
+            
+        document.getElementById("carregar").addEventListener('click', () => carregarDiv())
+     </script>
+
+</body>
+
+</html>
