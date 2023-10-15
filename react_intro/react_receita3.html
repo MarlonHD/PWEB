@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>ReceitaReact - 3</title>      
+   </head>
+
+   <body>
+      <div id="app">
+      </div>
+
+      <script src="libs/react.js"></script>
+
+      <script src="libs/react-dom.js"></script>
+
+      <script src="https://unpkg.com/babel-standalone/babel.min.js" crossorigin></script>
+
+      <script type="text/babel">
+
+        let cervejas = [
+            {
+                name: "Guiness", 
+                alcohol: "10%",
+                style: "English IPA",
+                ibu: "30"    
+            }, 
+            {
+                name: "Desperados",
+                alcohol: "6%",
+                style: "Pilsen",
+                ibu: "25"            
+            }, 
+            {
+                name: "Becks",
+                alcohol: "5%",
+                style: "Red Ale",
+                ibu: "40"            
+            },
+
+        ]
+
+        const TabelaBebidas = ({titulo,cabecalhos:cabecalho, conteudo:content}) => {
+            return (
+            <div>
+                <h1>{titulo}</h1>
+                <table id="tabela" border="1">
+                    <thead>
+                        <tr>
+                            {cabecalho.map((cbclh) => (<th>{cbclh}</th>))}    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {content.map((cerv) => (
+                            <tr>
+                                <td>{cerv.name}</td>
+                                <td>{cerv.alcohol}</td>
+                                <td>{cerv.style}</td>
+                                <td>{cerv.ibu}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+                    )  
+            }
+
+            const valoresCabecalhos = ["Nome", "Alcool", "Estilo", "IBU"]
+            ReactDOM.render(
+                <TabelaBebidas titulo="minha tabela de cana" cabecalhos={ valoresCabecalhos } conteudo={cervejas}/>
+                ,
+                document.getElementById("app"))
+      </script>
+
+   </body>
+
+</html>
