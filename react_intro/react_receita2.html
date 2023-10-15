@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+
+      <title>ReceitaReact - 2</title>      
+
+   </head>
+
+   <body>
+
+      <div id="app">
+
+      
+
+      </div>
+
+
+
+      <script src="libs/react.js"></script>
+
+      <script src="libs/react-dom.js"></script>
+
+      <script src="libs/babel.js"></script>
+
+            
+
+      <script type="text/babel">
+
+      
+
+         class TabelaBebidas extends React.Component{ 
+            render(){
+               return (
+                  <div>
+                     <h1>{this.props.titulo}</h1>
+                     <table id="tabela" border="1">
+                        <thead>
+                           <tr><th>Nome</th><th>Marca</th></tr>
+                        </thead>
+                        <tbody>
+                           <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                           <tr><td>Matuta</td><td>Engenho Vaca Brava</td></tr>
+                        </tbody>
+                     </table>
+                 </div> 
+               )
+            }
+         }
+
+         class Imagem extends React.Component{
+            render(){
+                return (
+                    <div>
+                        <h1>Exemplo Imagem</h1>    
+                        <img alt="imagem" src="data:image/jpeg;base64,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" />
+                    </div>
+                )
+            }
+         }
+            
+         const TabelaBebidas__ = () => {
+            return (
+               <div>
+                  <h1>Tabela de Bebidas</h1>
+                  <table id="tabela" border="1">
+                     <thead>
+                        <tr><th>Nome</th><th>Marca</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                     </tbody>
+                  </table>
+               </div>
+            )  
+         }
+
+         
+
+         ReactDOM.render(
+            <div>
+                <TabelaBebidas titulo="Tabela de bebidas"/>
+                <Imagem/>
+            </div>
+            ,
+
+            document.getElementById("app"))
+
+
+
+      </script>
+
+   </body>
+
+</html>
